@@ -2,18 +2,19 @@ import * as React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import Seo from '../Seo/Seo'
 import GlobalStyle from '../../theme/GlobalStyle'
-import { lightTheme } from '../../theme/theme'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
+import { ThemeToggleProvider } from '../../context/ThemeContext'
+import Header from '../Header/Header'
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = React.useState(lightTheme)
-  const [isLight, setIsLight] = React.useState(true)
-
   return (
     <>
       <Seo />
       <GlobalStyle />
-      <ThemeProvider theme={theme} isLight={isLight}>
+      <ThemeToggleProvider>
         <AppWrapper>
+          <Header />
+          <ThemeToggle />
           {children}
           {/* <Header
             setTheme={setTheme}
@@ -21,7 +22,7 @@ const Layout = ({ children }) => {
             isLight={isLight}
           /> */}
         </AppWrapper>
-      </ThemeProvider>
+      </ThemeToggleProvider>
     </>
   )
 }

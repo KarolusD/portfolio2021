@@ -15,6 +15,11 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -38,10 +43,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -58,6 +59,28 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/assets/images`,
+        name: `images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/projects`,
+        name: `projects`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'A learning, teaching and dancing software engineer',
@@ -66,7 +89,7 @@ module.exports = {
         background_color: '#FFF',
         theme_color: '#FF9966',
         display: 'standalone',
-        icon: './src/images/icon.png',
+        icon: './src/assets/images/icon.png',
       },
     },
     'gatsby-plugin-offline',

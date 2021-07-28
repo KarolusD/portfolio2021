@@ -1,11 +1,11 @@
 import * as React from 'react'
-import styled from 'styled-components'
-import { BigH1, H2, P } from '../components/Typography/Typography'
+import styled, { keyframes } from 'styled-components'
 import Button from '../components/Button/Button'
+import { BigH1, H2, P } from '../components/Typography/Typography'
 
 const HeroTemplate = () => {
   return (
-    <HeroSection>
+    <HeroSection id="home">
       <HeroContent>
         <HeroHeading>
           Code with <br />
@@ -13,8 +13,16 @@ const HeroTemplate = () => {
         </HeroHeading>
         <HeroParagraph>Hello there, I am</HeroParagraph>
         <HeroSubheading>Frontend developer & UI/UX designer</HeroSubheading>
-        <HeroCTA primary>See my work</HeroCTA>
+
+        <HeroCTA>
+          <Button primary>see my work</Button>
+          <Button>read my blog</Button>
+        </HeroCTA>
       </HeroContent>
+      <ScrollDown>
+        <ScrollIndicator />
+        <ScrollLabel>scroll down</ScrollLabel>
+      </ScrollDown>
     </HeroSection>
   )
 }
@@ -23,13 +31,12 @@ export default HeroTemplate
 
 const HeroSection = styled.section`
   height: 100vh;
-  max-height: 1000px;
   width: 100%;
   max-width: 1200px;
 `
 
 const HeroContent = styled.div`
-  margin-top: 16vh;
+  top: 20%;
   position: relative;
   z-index: 1;
 `
@@ -48,37 +55,73 @@ const HeroParagraph = styled(P)`
   color: ${({ theme }) => theme.darkGray};
 `
 
-const HeroCTA = styled(Button)`
+const HeroCTA = styled.div`
+  display: flex;
+  margin-top: 0.8rem;
+  flex-direction: column;
+
+  & > :first-child {
+    margin-left: 0;
+  }
+
+  ${({ theme }) => theme.mq.tablet} {
+    flex-direction: row;
+  }
+`
+
+const ScrollDown = styled.div`
+  align-items: center;
+  bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+`
+
+const ScrollLabel = styled(P)`
+  color: ${({ theme }) => theme.darkGray};
+  font-size: ${({ theme }) => theme.font.size.body2};
   margin-top: 1.2rem;
-  background-color: ${({ theme }) => theme.brandRed};
-  color: ${({ theme }) => theme.white};
+`
+
+const ScrollIndicator = styled.div`
   position: relative;
-  transition: transform 200ms ease;
+  height: 8rem;
+  width: 0.4rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
 
   &::before {
-    background-color: ${({ theme }) => theme.transparentBrandRed};
-    border-radius: 2.4rem;
+    animation-name: ${() => scrollAnimation};
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 4;
+    background: ${({ theme }) =>
+      `linear-gradient(to bottom, transparent 10%, ${theme.darkGray})`};
+    border-radius: 0.2rem;
     content: '';
     position: absolute;
-    top: 0.6rem;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    transition: transform 200ms ease;
+  }
+`
+
+const scrollAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-8rem);
   }
 
-  &:hover {
-    transform: scale(1.1);
-    &::before {
-      transform: translateY(0.8rem) scale(0.9);
-    }
+  70% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 
-  &:active {
-    transform: translateY(0.4rem) scale(1);
-    &::before {
-      transform: translateY(-0.4rem) scale(1);
-    }
+  100% {
+    opacity: 0;
   }
 `
