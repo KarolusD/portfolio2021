@@ -31,7 +31,7 @@ const ProjectsTemplate = () => {
 
       return (
         <Project key={title} idx={idx}>
-          <ProjectContent>
+          <ProjectContent idx={idx}>
             <ProjectTitle>{title}</ProjectTitle>
             <ProjectRole>{role}</ProjectRole>
             <ProjectDesc>{description}</ProjectDesc>
@@ -100,7 +100,7 @@ const query = graphql`
 `
 
 const ProjectsSection = styled.section`
-  padding-top: 8rem;
+  padding: 8rem 0 16rem 0;
 `
 
 const Project = styled.div`
@@ -115,9 +115,19 @@ const Project = styled.div`
 
   ${({ theme }) => theme.mq.desktop} {
     margin-bottom: 0;
-    height: 100vh;
-    max-height: 88rem;
+    min-height: ${({ idx }) => (idx % 2 === 0 ? '60vh' : '80vh')};
     flex-direction: ${({ idx }) => (idx % 2 === 0 ? 'row-reverse' : 'row')};
+  }
+`
+
+const ProjectContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.6rem;
+
+  ${({ theme }) => theme.mq.desktop} {
+    margin: ${({ idx }) => (idx % 2 === 0 ? '0 0 0 8rem' : '0 8rem 0 0')};
+    margin-top: 0;
   }
 `
 
@@ -138,17 +148,6 @@ const ProjectDesc = styled(P)`
 
 const ProjectImage = styled(GatsbyImage)`
   max-width: 72rem;
-`
-
-const ProjectContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 1.6rem;
-
-  ${({ theme }) => theme.mq.desktop} {
-    margin: 0 8rem;
-    margin-top: 0;
-  }
 `
 
 const ProjectActions = styled.div`

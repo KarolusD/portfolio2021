@@ -21,8 +21,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0.8rem 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    ::selection { background: #4790FF }
+  h1, h2, h3, h4, h5, h6, p {
+    ::selection { background: #5E97EC }
   }
 
   body {

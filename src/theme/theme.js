@@ -1,6 +1,6 @@
 const lightTheme = {
   mode: 'light',
-  bg: '#EDF3F6',
+  bg: '#E8F0F4',
   white: '#F2F5F9',
   almostBg: '#F5FCFF',
   lightGray: '#E1ECF3',
@@ -15,7 +15,7 @@ const lightTheme = {
   transparentBrandOrange: 'rgba(255, 143, 87, 0.15)',
   transparentBrandBlue: 'rgba(71, 144, 255, 0.15)',
   transparentGray: 'rgba(94, 149, 183, 0.15)',
-  transparentBg: 'rgba(237, 243, 246, 0.75)',
+  transparentBg: 'rgba(232, 240, 244, 0.75)',
   transition: '300ms cubic-bezier(0.25, 0.75, 0.5, 1.25)',
   themeTransition: '400ms ease-in-out',
 
@@ -43,7 +43,7 @@ const lightTheme = {
   },
   mq: {
     tablet: '@media (min-width: 768px)',
-    desktop: '@media (min-width: 1024px)',
+    desktop: '@media (min-width: 1200px)',
     huge: '@media (min-width: 1920px)',
   },
 }

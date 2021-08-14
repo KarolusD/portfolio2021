@@ -34,7 +34,7 @@ const ToggleWrapper = styled.div`
   transform: rotateZ(90deg);
   z-index: 99;
 
-  ${({ theme }) => theme.mq.tablet} {
+  ${({ theme }) => theme.mq.desktop} {
     display: flex;
   }
 `
