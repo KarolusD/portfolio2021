@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme } from '../theme/theme'
-import { useDarkTheme } from '../hooks/useDarkTheme'
+import { lightTheme, darkTheme } from 'theme/theme'
+import { useDarkTheme } from 'hooks/useDarkTheme'
 
 export const ThemeContext = React.createContext(null)
 

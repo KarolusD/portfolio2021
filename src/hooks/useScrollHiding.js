@@ -3,7 +3,7 @@ import * as React from 'react'
 export const useScrollHiding = (scrollDownRef) => {
   React.useEffect(() => {
     const scrollTracking = () => {
-      if (window && scrollDownRef) {
+      if (window && scrollDownRef.current) {
         if (window.scrollY > 0) {
           scrollDownRef.current.classList.add('hidden')
         } else {
@@ -13,10 +13,10 @@ export const useScrollHiding = (scrollDownRef) => {
     }
     window.addEventListener('scroll', scrollTracking)
 
-    // return () => {
-    //   if (!elemRef) {
-    //     window.removeEventListener('scroll', scrollTracking)
-    //   }
-    // }
+    return () => {
+      if (!scrollDownRef) {
+        window.removeEventListener('scroll', scrollTracking)
+      }
+    }
   }, [])
 }

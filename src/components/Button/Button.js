@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const Button = ({ children, primary, ...props }) => {
-  console.log(props)
   return (
     <ButtonWrapper>
-      <InnerButton primary={primary} {...props}>
+      <InnerButton $primary={primary} {...props}>
         {children}
       </InnerButton>
     </ButtonWrapper>
@@ -26,7 +26,7 @@ const InnerButton = styled.button`
   background: none;
   box-shadow: none;
   border-radius: 3.2rem;
-  color: ${({ theme, primary }) => (primary ? theme.bg : theme.text)};
+  color: ${({ theme, $primary }) => ($primary ? theme.bg : theme.text)};
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@ const InnerButton = styled.button`
 
   &::after {
     border: 1px solid
-      ${({ theme, primary }) => (primary ? theme.brandGreen : theme.gray)};
+      ${({ theme, $primary }) => ($primary ? theme.brandGreen : theme.gray)};
     content: '';
     border-radius: 3.2rem;
     height: 100%;
@@ -57,8 +57,8 @@ const InnerButton = styled.button`
   }
 
   &::before {
-    background-color: ${({ theme, primary }) =>
-      primary ? theme.brandGreen : 'transparent'};
+    background-color: ${({ theme, $primary }) =>
+      $primary ? theme.brandGreen : 'transparent'};
     border-radius: 3.2rem;
     content: '';
     height: 100%;
@@ -73,10 +73,11 @@ const InnerButton = styled.button`
   &:hover,
   &:focus {
     outline: none;
-    color: ${({ theme, primary }) => (primary ? theme.brandGreen : theme.text)};
+    color: ${({ theme, $primary }) =>
+      $primary ? theme.brandGreen : theme.text};
     &::before {
-      background-color: ${({ theme, primary }) =>
-        primary ? theme.transparentBrandGreen : theme.transparentGray};
+      background-color: ${({ theme, $primary }) =>
+        $primary ? theme.transparentBrandGreen : theme.transparentGray};
       top: 0.6rem;
       left: 0.6rem;
       width: calc(100% - 1.2rem);
@@ -85,10 +86,7 @@ const InnerButton = styled.button`
   }
 
   &:active {
-    /* color: ${({ theme, primary }) => (primary ? theme.bg : theme.text)}; */
     &::before {
-      /* background-color: ${({ theme, primary }) =>
-        primary ? theme.brandGreen : 'transparent'}; */
       top: 0;
       left: 0;
       width: 100%;

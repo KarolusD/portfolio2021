@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { H2, H3, P } from '../components/Typography/Typography'
+import { H2, H3, P } from 'components/Typography/Typography'
 import styled from 'styled-components'
-import SectionTitle from '../components/SectionTitle/SectionTitle'
+import SectionTitle from 'components/SectionTitle/SectionTitle'
+import Section from 'components/Section/Section'
 
 const AboutMeTemplate = () => {
   return (
-    <AboutMeSection>
+    <Section id="about-me">
       <SectionTitle content="Get to know me">Get to know me</SectionTitle>
       <AboutMeWrapper>
         <AboutMeAside>
@@ -34,15 +35,11 @@ const AboutMeTemplate = () => {
           </ArticleText>
         </AboutMeArticle>
       </AboutMeWrapper>
-    </AboutMeSection>
+    </Section>
   )
 }
 
 export default AboutMeTemplate
-
-const AboutMeSection = styled.section`
-  padding: 8rem 0 16rem 0;
-`
 
 const AboutMeWrapper = styled.div`
   max-width: 120rem;

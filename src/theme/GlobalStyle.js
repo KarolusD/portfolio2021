@@ -10,12 +10,17 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
     padding: 0;
-
   }
 
   html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
   }
+
+  /* #projects, #about-me, #contact {
+    scroll-margin-top: 10rem;
+  } */
+
 
   h1 {
     margin: 0.8rem 0;
@@ -30,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   #___gatsby {

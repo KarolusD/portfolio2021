@@ -1,11 +1,12 @@
-import { H2, P } from '../components/Typography/Typography'
 import * as React from 'react'
 import styled from 'styled-components'
-import Message from '../assets/svg/message.svg'
-import Layout from '../assets/svg/Layout.svg'
-import Code from '../assets/svg/Code.svg'
-import Layers from '../assets/svg/Layers.svg'
-import SectionTitle from '../components/SectionTitle/SectionTitle'
+import Code from 'assets/svg/Code.svg'
+import Layers from 'assets/svg/Layers.svg'
+import Layout from 'assets/svg/Layout.svg'
+import Message from 'assets/svg/message.svg'
+import Section from 'components/Section/Section'
+import SectionTitle from 'components/SectionTitle/SectionTitle'
+import { H2, P } from 'components/Typography/Typography'
 
 const MyExpertiseTemplate = () => {
   const SKILLS = [
@@ -14,24 +15,28 @@ const MyExpertiseTemplate = () => {
       title: 'Research & direction',
       description:
         'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+      emphasis: 'Understand first.',
     },
     {
       icon: <Layout />,
       title: 'UI/UX design',
       description:
         'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+      emphasis: 'Every pixel matter.',
     },
     {
       icon: <Code />,
       title: 'Development',
       description:
         'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+      emphasis: 'Bring work to life.',
     },
     {
       icon: <Layers />,
       title: 'Motion & animation',
       description:
         'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+      emphasis: 'Show rather than tell.',
     },
   ]
 
@@ -42,7 +47,10 @@ const MyExpertiseTemplate = () => {
           <Icon>{skill.icon}</Icon>
           <Content>
             <Title>{skill.title}</Title>
-            <Description>{skill.description}</Description>
+            <Description>
+              <span>{skill.emphasis} </span>
+              {skill.description}
+            </Description>
           </Content>
         </Skill>
       )
@@ -50,25 +58,20 @@ const MyExpertiseTemplate = () => {
   }
 
   return (
-    <MyExpertiseSection>
+    <Section id="my-expertise">
       <SectionTitle content="My expertise">My expertise</SectionTitle>
       <MyExpertiseWrapper>{renderSkills()}</MyExpertiseWrapper>
-    </MyExpertiseSection>
+    </Section>
   )
 }
 
 export default MyExpertiseTemplate
 
-const MyExpertiseSection = styled.section`
-  max-width: 120rem;
-  position: relative;
-  padding: 8rem 0 16rem 0;
-`
-
 const MyExpertiseWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 8rem;
+  max-width: 120rem;
 
   ${({ theme }) => theme.mq.desktop} {
     grid-template-columns: repeat(2, 1fr);
@@ -112,4 +115,8 @@ const Title = styled(H2)`
 
 const Description = styled(P)`
   color: ${({ theme }) => theme.darkGray};
+
+  & > span {
+    font-weight: ${({ theme }) => theme.font.weight.semibold};
+  }
 `

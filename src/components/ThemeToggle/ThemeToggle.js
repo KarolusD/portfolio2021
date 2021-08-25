@@ -1,21 +1,30 @@
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { P } from '../Typography/Typography'
-import { useThemeContext } from '../../hooks/useThemeContext'
+import { useThemeContext } from 'hooks/useThemeContext'
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ ...props }) => {
   const { isDark, toggle } = useThemeContext()
+  const toggleRef = React.useRef(null)
 
   const handleToggleTheme = (event) => {
     event.stopPropagation()
     toggle()
+    console.log(toggleRef.current.classList)
+    // setTimeout(() => {
+    //   toggleRef.current.classList.add('animate')
+    // }, 100)
+
+    // setTimeout(() => {
+    //   toggleRef.current.classList.remove('animate')
+    // }, 1000)
   }
 
   return (
-    <ToggleWrapper>
+    <ToggleWrapper {...props}>
       <ToggleLightLabel isDark={isDark}>Light</ToggleLightLabel>
       <Switch onClick={handleToggleTheme}>
-        <SwitchToggle isDark={isDark} />
+        <SwitchToggle ref={toggleRef} isDark={isDark} />
       </Switch>
       <ToggleDarkLabel isDark={isDark}>Dark</ToggleDarkLabel>
     </ToggleWrapper>
@@ -25,17 +34,28 @@ const ThemeToggle = () => {
 export default ThemeToggle
 
 const ToggleWrapper = styled.div`
-  display: none;
+  display: flex;
   flex-direction: row;
-  position: fixed;
-  right: 4.8rem;
-  top: 50%;
-  transform-origin: center right;
-  transform: rotateZ(90deg);
-  z-index: 99;
+  position: absolute;
+  top: calc(100% - 10rem);
+  right: 50%;
+  transform: translateX(50%);
 
   ${({ theme }) => theme.mq.desktop} {
-    display: flex;
+    display: none;
+  }
+
+  &.desktop {
+    display: none;
+    ${({ theme }) => theme.mq.desktop} {
+      display: flex;
+      position: fixed;
+      right: 4.8rem;
+      top: 50%;
+      transform-origin: center right;
+      transform: rotateZ(90deg);
+      z-index: 99;
+    }
   }
 `
 
@@ -45,7 +65,7 @@ const Switch = styled.button`
   box-shadow: none;
   border: none;
   cursor: pointer;
-  width: 8rem;
+  width: 7.2rem;
   height: 3.2rem;
   padding: 2px;
   margin: 0 2rem;
@@ -59,9 +79,9 @@ const SwitchToggle = styled.div`
   height: 100%;
   width: 4rem;
 
-  animation: 300ms ease-in-out
-    ${({ isDark }) => (isDark ? toggleDarkAnimation : toggleLightAnimation)};
-  animation-fill-mode: both;
+  transform: ${({ isDark }) =>
+    isDark ? 'translateX(calc(100% - 1.2rem))' : 'translateX(0)'};
+  transition: transform 200ms ease-out;
 `
 
 const ToggleLightLabel = styled(P)`
@@ -76,32 +96,4 @@ const ToggleDarkLabel = styled(P)`
     isDark ? theme.brandOrange : theme.darkGray};
   font-weight: 600;
   text-align: left;
-`
-
-const toggleDarkAnimation = keyframes`
-  0% {
-    transform: translateX(0)
-  }
-
-  30% {
-    width: 5rem;
-  }
-
-  100% {
-    transform: translateX(calc(100% - 0.4rem));
-  }
-`
-
-const toggleLightAnimation = keyframes`
-  0% {
-      transform: translateX(calc(100% - 0.4rem))
-    }
-
-  70% {
-    width: 5rem;
-  }
-
-  100% {
-    transform: translateX(0)
-  } 
 `

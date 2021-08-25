@@ -1,30 +1,25 @@
 import * as React from 'react'
-import Logo from '../../assets/svg/logo.svg'
+import Logo from 'assets/svg/logo.svg'
 import styled from 'styled-components'
 import Hamburger from './Hamburger/Hamburger'
 import Social from './Social/Social'
 import Menu from './Menu/Menu'
+import { useMenu } from 'hooks/useMenu'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(true)
-
-  const toggleMobileMenu = () => {
-    setIsMenuOpen((prev) => !prev)
-  }
+  const { isMenuOpen, toggleMobileMenu } = useMenu()
 
   return (
     <HeaderWrapper>
       <HeaderInnerWrapper>
         <HeaderLogo />
-        <Menu isMenuOpen={isMenuOpen} />
+        <Menu isMenuOpen={isMenuOpen} toggleMobileMenu={toggleMobileMenu} />
         <Hamburger
           isMenuOpen={isMenuOpen}
           toggleMobileMenu={toggleMobileMenu}
         />
         <Social />
       </HeaderInnerWrapper>
-      {/* <MobileMenu isOpen={isOpen} handleLinkClick={handleLinkClick} />
-      <Menu handleLinkClick={handleLinkClick} />  */}
     </HeaderWrapper>
   )
 }

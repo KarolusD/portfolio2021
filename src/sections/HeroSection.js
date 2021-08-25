@@ -1,11 +1,12 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
-import Button from '../components/Button/Button'
-import { BigH1, H2, P } from '../components/Typography/Typography'
-import { useScrollHiding } from '../hooks/useScrollHiding'
-import { useThemeContext } from '../hooks/useThemeContext'
+import Button from 'components/Button/Button'
+import { BigH1, H2, P } from 'components/Typography/Typography'
+import { useScrollHiding } from 'hooks/useScrollHiding'
+import { useThemeContext } from 'hooks/useThemeContext'
+import Section from 'components/Section/Section'
 
 const HeroTemplate = () => {
   const scrollDownRef = React.useRef(null)
@@ -15,7 +16,13 @@ const HeroTemplate = () => {
 
   const data = useStaticQuery(query)
 
-  const HERO_IMAGES = data.allFile.edges
+  const HERO_IMAGES = data.allFile.edges[0].node
+
+  const {
+    childMdx: {
+      frontmatter: { imageLight, imageDark },
+    },
+  } = HERO_IMAGES
 
   return (
     <HeroSection id="home">
@@ -29,17 +36,17 @@ const HeroTemplate = () => {
           <HeroSubheading>Frontend developer & UI/UX designer</HeroSubheading>
 
           <HeroCTA>
-            <Button primary>see my work</Button>
-            <Button>read my blog</Button>
+            <Button primary as={Link} to="/#projects">
+              see my work
+            </Button>
+            <Button as={Link} to="/blog">
+              read my blog
+            </Button>
           </HeroCTA>
         </HeroArticle>
         <HeroAside>
           <HeroImage
-            image={getImage(
-              isDark
-                ? HERO_IMAGES[0].node.childImageSharp
-                : HERO_IMAGES[1].node.childImageSharp
-            )}
+            image={getImage(isDark ? imageDark : imageLight)}
             alt="user interface isometric illustration"
           />
         </HeroAside>
@@ -54,7 +61,7 @@ const HeroTemplate = () => {
 
 export default HeroTemplate
 
-const HeroSection = styled.section`
+const HeroSection = styled(Section)`
   height: auto;
   min-height: 100vh;
   width: 100%;
@@ -112,10 +119,6 @@ const HeroImage = styled(GatsbyImage)`
     left: -8rem;
     top: 8rem;
     transform: none;
-  }
-
-  ${({ theme }) => theme.mq.huge} {
-    max-width: 88rem;
   }
 `
 
@@ -198,20 +201,6 @@ const ScrollIndicator = styled.div`
   }
 `
 
-const Bubble = styled.div`
-  background: ${({ theme }) =>
-    theme.mode === 'light'
-      ? 'radial-gradient(50% 50% at 33.3% 33.3%, #FFFFFF 0%, #F4FAFD 50%, #D5E7F1 100%)'
-      : 'radial-gradient(50% 50% at 33% 33.3%, #161E28 0%, #10161D 50%, #080C12 100%)'};
-  border-radius: ${({ size }) => size};
-  height: ${({ size }) => size};
-  width: ${({ size }) => size};
-  position: absolute;
-  top: ${({ top }) => top};
-  left: ${({ left }) => left};
-  transition: all 800ms ease;
-`
-
 const scrollAnimation = keyframes`
   0% {
     opacity: 0;
@@ -229,17 +218,29 @@ const scrollAnimation = keyframes`
 `
 
 const query = graphql`
-  query MyQuery {
+  query HeroImages {
     allFile(
       filter: {
         sourceInstanceName: { eq: "images" }
         relativeDirectory: { eq: "main" }
+        extension: { regex: "/(md)|(mdx)/" }
       }
     ) {
       edges {
         node {
-          childImageSharp {
-            gatsbyImageData(placeholder: NONE)
+          childMdx {
+            frontmatter {
+              imageLight {
+                childImageSharp {
+                  gatsbyImageData(placeholder: NONE)
+                }
+              }
+              imageDark {
+                childImageSharp {
+                  gatsbyImageData(placeholder: NONE)
+                }
+              }
+            }
           }
         }
       }

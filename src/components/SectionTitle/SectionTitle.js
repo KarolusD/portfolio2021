@@ -14,12 +14,12 @@ const SectionTitle = styled(H1)`
     color: ${({ theme }) => theme.transparentGray};
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
     height: 100%;
     font-size: ${({ theme }) => theme.font.size.h1};
     white-space: nowrap;
     text-align: center;
+    transform: translateX(-50%);
   }
 `
 

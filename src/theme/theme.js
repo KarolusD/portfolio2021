@@ -5,7 +5,7 @@ const lightTheme = {
   almostBg: '#F5FCFF',
   lightGray: '#E1ECF3',
   gray: '#B1C8D6',
-  darkGray: '#5E95B7',
+  darkGray: '#4B86AC',
   black: '#12181F',
   text: '#0C2D37',
   brandGreen: '#23A165',

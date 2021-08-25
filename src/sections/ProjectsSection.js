@@ -2,10 +2,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import styled from 'styled-components'
-import Button from '../components/Button/Button'
-import SectionTitle from '../components/SectionTitle/SectionTitle'
-import { H2, H4, P } from '../components/Typography/Typography'
-import { useThemeContext } from '../hooks/useThemeContext'
+import Button from 'components/Button/Button'
+import SectionTitle from 'components/SectionTitle/SectionTitle'
+import Section from 'components/Section/Section'
+import { H2, H4, P } from 'components/Typography/Typography'
+import { useThemeContext } from 'hooks/useThemeContext'
 
 const ProjectsTemplate = () => {
   const { isDark } = useThemeContext()
@@ -54,10 +55,10 @@ const ProjectsTemplate = () => {
   }
 
   return (
-    <ProjectsSection id="projects">
+    <Section id="projects">
       <SectionTitle content="Recent projects">Recent projects</SectionTitle>
       {renderProjects()}
-    </ProjectsSection>
+    </Section>
   )
 }
 
@@ -99,8 +100,8 @@ const query = graphql`
   }
 `
 
-const ProjectsSection = styled.section`
-  padding: 8rem 0 16rem 0;
+const ProjectsSection = styled(Section)`
+  min-height: 300vh;
 `
 
 const Project = styled.div`
@@ -132,11 +133,12 @@ const ProjectContent = styled.div`
 `
 
 const ProjectTitle = styled(H2)`
-  font-size: ${({ theme }) => theme.font.size.h5};
+  font-size: ${({ theme }) => theme.font.size.h4};
+  font-weight: ${({ theme }) => theme.font.weight.extrabold};
 `
 
 const ProjectRole = styled(H4)`
-  color: ${({ theme }) => theme.brandOrange};
+  color: ${({ theme }) => theme.brandGreen};
   font-size: ${({ theme }) => theme.font.size.body};
   margin-bottom: 0.8rem;
 `

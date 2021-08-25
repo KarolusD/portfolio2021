@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import GithubIcon from '../../../assets/svg/github.svg'
-import LinkedinIcon from '../../../assets/svg/linkedin.svg'
-import EmailIcon from '../../../assets/svg/email.svg'
+import GithubIcon from 'assets/svg/github.svg'
+import LinkedinIcon from 'assets/svg/linkedin.svg'
+import EmailIcon from 'assets/svg/email.svg'
 
 const Social = () => {
   return (

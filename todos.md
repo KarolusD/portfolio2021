@@ -1,8 +1,10 @@
 - [x] Hide scroll down when you start scrolling
 - [x] Make Section header as separate component
-- [ ] Display bubbles at Hero section
-- [ ] Add about me section
-- [ ] Add expertise section
-- [ ] Add contact Section
-- [ ] Fetch weather from somewhere
-- [ ] Display funny quote based on current weather
+- [x] Display illustration at Hero section
+- [x] Add about me section
+- [x] Add expertise section
+- [x] Add contact Section
+
+- [ ] Make the mobile menu works
+- [ ] Make the nav works
+- [ ] Exchange lorem ipsum

@@ -1,16 +1,51 @@
+import { Link } from 'gatsby'
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { Link } from 'gatsby'
+import ThemeToggle from '../../ThemeToggle/ThemeToggle'
+import { useActiveSection } from 'hooks/useActiveSection'
 
-const MENU_ITEMS = ['home', 'projects', 'about me', 'blog', 'contact']
+const MENU_ITEMS = [
+  {
+    name: 'home',
+    link: '/#home',
+  },
+  {
+    name: 'projects',
+    link: '/#projects',
+  },
+  {
+    name: 'about me',
+    link: '/#about-me',
+  },
+  {
+    name: 'blog',
+    link: '/blog',
+  },
+  {
+    name: 'contact',
+    link: '/#contact',
+  },
+]
 
-const Menu = ({ isMenuOpen }) => {
+const Menu = ({ isMenuOpen, toggleMobileMenu }) => {
+  const [activeSection] = useActiveSection({
+    targets: ['home', 'projects', 'about-me', 'blog', 'contact'],
+    offset: 400,
+  })
+
   const renderItems = () => {
     return MENU_ITEMS.map((item, idx) => {
       return (
-        <MenuItem key={item} idx={idx}>
-          <MenuLink to="/" href="#">
-            {item}
+        <MenuItem key={item.name} idx={idx}>
+          <MenuLink
+            $isActive={
+              activeSection &&
+              activeSection?.name === item.name.replaceAll(' ', '-')
+            }
+            to={item.link}
+            onClick={toggleMobileMenu}
+          >
+            {item.name}
           </MenuLink>
         </MenuItem>
       )
@@ -21,6 +56,7 @@ const Menu = ({ isMenuOpen }) => {
     isMenuOpen && (
       <MenuWrapper>
         <MenuList>{renderItems()}</MenuList>
+        <ThemeToggle />
       </MenuWrapper>
     )
   )
@@ -30,6 +66,7 @@ export default Menu
 
 const MenuWrapper = styled.nav`
   align-items: center;
+  background-color: ${({ theme }) => theme.bg};
   display: flex;
   justify-content: center;
   position: absolute;
@@ -39,6 +76,7 @@ const MenuWrapper = styled.nav`
   width: 100vw;
 
   ${({ theme }) => theme.mq.desktop} {
+    background-color: transparent;
     position: relative;
     width: auto;
     height: auto;
@@ -75,7 +113,8 @@ const MenuItem = styled.li`
 `
 
 const MenuLink = styled(Link)`
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme, $isActive }) =>
+    $isActive ? theme.brandOrange : theme.text};
   font-weight: ${({ theme }) => theme.font.weight.semibold};
   text-decoration: none;
   padding: 0.4rem;
