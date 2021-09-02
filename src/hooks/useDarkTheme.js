@@ -6,7 +6,7 @@ const COLOR_SCHEME_QUERY = '(prefers-color-scheme:dark)'
 export const useDarkTheme = (initialState) => {
   const getPrefersScheme = () => {
     // Prevent SSR issues
-    if (typeof window !== 'undefined') {
+    if (window) {
       return window.matchMedia(COLOR_SCHEME_QUERY).matches
     }
     return !!initialState
