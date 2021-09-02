@@ -9,7 +9,7 @@ const BlogPage = () => {
     <Layout>
       <Seo title="blog" />
       <Section id="blog">
-        <H1>Tu bedzie blog!</H1>
+        <H1>Here will be blog!</H1>
       </Section>
     </Layout>
   )

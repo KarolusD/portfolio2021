@@ -10,21 +10,13 @@ const ThemeToggle = ({ ...props }) => {
   const handleToggleTheme = (event) => {
     event.stopPropagation()
     toggle()
-    console.log(toggleRef.current.classList)
-    // setTimeout(() => {
-    //   toggleRef.current.classList.add('animate')
-    // }, 100)
-
-    // setTimeout(() => {
-    //   toggleRef.current.classList.remove('animate')
-    // }, 1000)
   }
 
   return (
     <ToggleWrapper {...props}>
       <ToggleLightLabel isDark={isDark}>Light</ToggleLightLabel>
       <Switch onClick={handleToggleTheme}>
-        <SwitchToggle ref={toggleRef} isDark={isDark} />
+        <SwitchToggle className="toggle" ref={toggleRef} isDark={isDark} />
       </Switch>
       <ToggleDarkLabel isDark={isDark}>Dark</ToggleDarkLabel>
     </ToggleWrapper>
@@ -62,13 +54,14 @@ const ToggleWrapper = styled.div`
 const Switch = styled.button`
   background-color: ${({ theme }) => theme.brandOrange};
   border-radius: 1.6rem;
-  box-shadow: none;
   border: none;
+  box-shadow: none;
   cursor: pointer;
   width: 7.2rem;
   height: 3.2rem;
   padding: 2px;
   margin: 0 2rem;
+  position: relative;
 `
 
 const SwitchToggle = styled.div`

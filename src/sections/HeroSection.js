@@ -67,7 +67,6 @@ const HeroSection = styled(Section)`
   width: 100%;
   max-width: 120rem;
   padding-top: 8rem;
-  /* position: relative; */
 
   ${({ theme }) => theme.mq.huge} {
     max-width: 160rem;

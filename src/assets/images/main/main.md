@@ -1,4 +1,4 @@
 ---
-imageLight: main-illustration-light.png
-imageDark: main-illustration-dark.png
+imageLight: 'main-illustration-light.png'
+imageDark: 'main-illustration-dark.png'
 ---

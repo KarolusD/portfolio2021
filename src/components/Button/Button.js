@@ -25,12 +25,12 @@ const InnerButton = styled.button`
   border: none;
   background: none;
   box-shadow: none;
-  border-radius: 3.2rem;
+  border-radius: 3.6rem;
   color: ${({ theme, $primary }) => ($primary ? theme.bg : theme.text)};
   cursor: pointer;
   display: flex;
   justify-content: center;
-  height: 6.4rem;
+  height: 7.2rem;
   margin: 0.8rem 0;
   padding: 0.8rem 4rem;
   position: relative;
@@ -46,7 +46,7 @@ const InnerButton = styled.button`
     border: 1px solid
       ${({ theme, $primary }) => ($primary ? theme.brandGreen : theme.gray)};
     content: '';
-    border-radius: 3.2rem;
+    border-radius: 3.6rem;
     height: 100%;
     left: 0;
     top: 0;
@@ -59,7 +59,7 @@ const InnerButton = styled.button`
   &::before {
     background-color: ${({ theme, $primary }) =>
       $primary ? theme.brandGreen : 'transparent'};
-    border-radius: 3.2rem;
+    border-radius: 3.6rem;
     content: '';
     height: 100%;
     left: 0;
@@ -78,10 +78,10 @@ const InnerButton = styled.button`
     &::before {
       background-color: ${({ theme, $primary }) =>
         $primary ? theme.transparentBrandGreen : theme.transparentGray};
-      top: 0.6rem;
-      left: 0.6rem;
-      width: calc(100% - 1.2rem);
-      height: calc(100% - 1.2rem);
+      top: 0.8rem;
+      left: 0.8rem;
+      width: calc(100% - 1.6rem);
+      height: calc(100% - 1.6rem);
     }
   }
 

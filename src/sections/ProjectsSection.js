@@ -38,11 +38,15 @@ const ProjectsTemplate = () => {
             <ProjectDesc>{description}</ProjectDesc>
             <ProjectActions>
               {codeBase && (
-                <Button as="a" primary>
+                <Button as="a" href={codeBase} target="_blank" primary>
                   see code
                 </Button>
               )}
-              {liveDemo && <Button as="a">live preview</Button>}
+              {liveDemo && (
+                <Button as="a" href={liveDemo} target="_blank">
+                  live preview
+                </Button>
+              )}
             </ProjectActions>
           </ProjectContent>
           <ProjectImage

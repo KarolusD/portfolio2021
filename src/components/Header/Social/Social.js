@@ -38,10 +38,10 @@ const Link = styled.a`
   display: flex;
   justify-content: center;
   margin: 0 0.8rem;
-  height: 5.6rem;
+  height: 6.4rem;
   text-decoration: none;
   position: relative;
-  width: 5.6rem;
+  width: 6.4rem;
   overflow: hidden;
 
   &::before {
@@ -66,10 +66,10 @@ const Link = styled.a`
     border: 1px solid ${({ theme }) => theme.brandBlue};
     outline: none;
     &::before {
-      top: 0.4rem;
-      left: 0.4rem;
-      width: calc(100% - 0.8rem);
-      height: calc(100% - 0.8rem);
+      top: 0.6rem;
+      left: 0.6rem;
+      width: calc(100% - 1.2rem);
+      height: calc(100% - 1.2rem);
     }
   }
 `

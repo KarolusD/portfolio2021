@@ -7,7 +7,6 @@ import styled from 'styled-components'
 import { H1 } from 'components/Typography/Typography'
 
 const PostTemplate = ({ data, pageContext }) => {
-  console.log(data, pageContext)
   const post = data.mdx
   const { previous, next } = pageContext
 

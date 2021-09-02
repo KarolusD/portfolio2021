@@ -8,13 +8,18 @@ import Section from 'components/Section/Section'
 import SectionTitle from 'components/SectionTitle/SectionTitle'
 import { H1, P } from 'components/Typography/Typography'
 import { useThemeContext } from 'hooks/useThemeContext'
+import { useClickToCopy } from 'hooks/useClickToCopy'
 
 const EMAIL = 'kpodzerek@gmail.com'
 
 const ContactMeTemplate = () => {
   const { isDark } = useThemeContext()
 
-  const copiedRef = React.useRef(null)
+  const copiedInfoTextRef = React.useRef(null)
+  const [copiedText, copyText] = useClickToCopy({
+    textToCopy: EMAIL,
+    copiedInfoTextRef,
+  })
 
   const data = useStaticQuery(query)
 
@@ -25,20 +30,6 @@ const ContactMeTemplate = () => {
       frontmatter: { imageLight, imageDark },
     },
   } = CONTACT_IMAGES
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL)
-      if (copiedRef.current) {
-        copiedRef.current.classList.add('visible')
-        setTimeout(() => {
-          copiedRef.current.classList.remove('visible')
-        }, 2000)
-      }
-    } catch (err) {
-      console.error('Failed to copy: ', err)
-    }
-  }
 
   return (
     <Section id="contact">
@@ -59,10 +50,10 @@ const ContactMeTemplate = () => {
             discuss further. If you are interested in hiring me I would be more
             than glad to meet with you.
           </ContactParagraph>
-          <Email primary onClick={copyEmail}>
+          <Email primary onClick={copyText}>
             {EMAIL}
             <Copy />
-            <Copied ref={copiedRef}>Copied!</Copied>
+            <Copied ref={copiedInfoTextRef}>Copied!</Copied>
           </Email>
         </ContactInfo>
       </ContactMeWrapper>
@@ -184,13 +175,13 @@ const Email = styled(Button)`
   align-items: center;
   box-shadow: none;
   border: none;
-  border-radius: 3.2rem;
+  border-radius: 3.6rem;
   color: ${({ theme }) => theme.brandGreen};
   cursor: pointer;
   display: flex;
   font-weight: ${({ theme }) => theme.font.weight.semibold};
   justify-content: center;
-  height: 6.4rem;
+  height: 7.2rem;
   padding: 0 3.2rem;
   position: relative;
   width: 100%;

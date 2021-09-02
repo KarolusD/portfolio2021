@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import * as React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import ThemeToggle from '../../ThemeToggle/ThemeToggle'
 import { useActiveSection } from 'hooks/useActiveSection'
 
@@ -113,11 +113,41 @@ const MenuItem = styled.li`
 `
 
 const MenuLink = styled(Link)`
-  color: ${({ theme, $isActive }) =>
-    $isActive ? theme.brandOrange : theme.text};
+  color: ${({ theme }) => theme.text};
   font-weight: ${({ theme }) => theme.font.weight.semibold};
   text-decoration: none;
   padding: 0.4rem;
+  position: relative;
+
+  &::before {
+    background: ${({ theme }) => theme.brandOrange};
+    border-radius: 0.15rem;
+    bottom: -0.4rem;
+    content: '';
+    height: 0.3rem;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    transition: all 200ms ease-out;
+  }
+
+  ${({ $isActive }) =>
+    $isActive &&
+    css`
+      &::before {
+        opacity: 1;
+        width: 100%;
+      }
+    `}
+
+  &:hover {
+    color: ${({ theme }) => theme.brandOrange};
+    &::before {
+      opacity: 1;
+      width: 100%;
+    }
+  }
 `
 
 const floatingItem = keyframes`
