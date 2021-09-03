@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Button from 'components/Button/Button'
 import SectionTitle from 'components/SectionTitle/SectionTitle'
 import Section from 'components/Section/Section'
-import { H2, H4, P } from 'components/Typography/Typography'
+import { H2, H3, P } from 'components/Typography/Typography'
 import { useThemeContext } from 'hooks/useThemeContext'
 
 const ProjectsTemplate = () => {
@@ -38,12 +38,18 @@ const ProjectsTemplate = () => {
             <ProjectDesc>{description}</ProjectDesc>
             <ProjectActions>
               {codeBase && (
-                <Button as="a" href={codeBase} target="_blank" primary>
+                <Button
+                  as="a"
+                  href={codeBase}
+                  target="_blank"
+                  primary
+                  rel="noreferrer"
+                >
                   see code
                 </Button>
               )}
               {liveDemo && (
-                <Button as="a" href={liveDemo} target="_blank">
+                <Button as="a" href={liveDemo} target="_blank" rel="noreferrer">
                   live preview
                 </Button>
               )}
@@ -141,7 +147,7 @@ const ProjectTitle = styled(H2)`
   font-weight: ${({ theme }) => theme.font.weight.extrabold};
 `
 
-const ProjectRole = styled(H4)`
+const ProjectRole = styled(H3)`
   color: ${({ theme }) => theme.brandGreen};
   font-size: ${({ theme }) => theme.font.size.body};
   margin-bottom: 0.8rem;

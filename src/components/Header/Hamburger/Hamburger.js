@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Hamburger = ({ isMenuOpen, toggleMobileMenu }) => {
   return (
-    <HamburgerWrapper onClick={toggleMobileMenu}>
+    <HamburgerWrapper aria-label="mobile menu" onClick={toggleMobileMenu}>
       <Onion isMenuOpen={isMenuOpen} />
       <Beef isMenuOpen={isMenuOpen} />
       <Tomato isMenuOpen={isMenuOpen} />

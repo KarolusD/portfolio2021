@@ -26,6 +26,7 @@ const Seo = ({ title, description, image, article, slug }) => {
         <meta property="og:description" content={seoData.description} />
       )}
       {seoData.image && <meta property="og:image" content={seoData.image} />}
+      <html lang="en" />
     </Helmet>
   )
 }
