@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://podzerek.pl/',
+    siteUrl: 'https://dev.podzerek.pl/',
     defaultTitle: 'Portfolio2021',
     defaultDescription: 'My personal portfolio & blog website',
     defaultImage: './src/images/site.png',

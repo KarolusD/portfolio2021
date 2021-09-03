@@ -11,7 +11,7 @@ const Seo = ({ title, description, image, article, slug }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
-    url: article ? `${siteUrl}blog/${slug}` : `${siteUrl}`,
+    url: article ? `${siteUrl}/blog${slug}` : `${siteUrl}`,
   }
 
   return (
