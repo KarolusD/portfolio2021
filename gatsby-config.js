@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://dev.podzerek.pl/',
-    defaultTitle: 'Portfolio2021',
+    defaultTitle: 'Karolus Development',
     defaultDescription: 'My personal portfolio & blog website',
-    defaultImage: './src/images/site.png',
-    author: 'Karol Podzerek',
+    defaultImage: 'site.png',
+    author: 'Karol Podżerek',
     keywords: [
       'Software Engineer',
       'Web Developer',
