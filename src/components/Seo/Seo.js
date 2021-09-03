@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useSiteMetadata } from 'hooks/useSiteMetadata'
+import siteImage from 'assets/images/site.png'
 
 const Seo = ({ title, description, image, article, slug }) => {
   const { defaultDescription, defaultTitle, defaultImage, siteUrl } =
@@ -10,7 +11,7 @@ const Seo = ({ title, description, image, article, slug }) => {
   const seoData = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
+    image: image || siteImage,
     url: article ? `${siteUrl}/blog${slug}` : `${siteUrl}`,
   }
 
