@@ -43,13 +43,18 @@ const ProjectsTemplate = () => {
                   href={codeBase}
                   target="_blank"
                   primary
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
                 >
                   see code
                 </Button>
               )}
               {liveDemo && (
-                <Button as="a" href={liveDemo} target="_blank" rel="noreferrer">
+                <Button
+                  as="a"
+                  href={liveDemo}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
                   live preview
                 </Button>
               )}

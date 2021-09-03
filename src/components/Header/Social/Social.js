@@ -7,10 +7,18 @@ import EmailIcon from 'assets/svg/email.svg'
 const Social = () => {
   return (
     <SocialWrapper>
-      <Link href="https://github.com/karolusd" target="_blank">
+      <Link
+        href="https://github.com/karolusd"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         <GithubIcon />
       </Link>
-      <Link href="https://pl.linkedin.com/in/karol-podzerek" target="_blank">
+      <Link
+        href="https://pl.linkedin.com/in/karol-podzerek"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         <LinkedinIcon />
       </Link>
       <Link href="mailto:kpodzerek@gmail.com">
