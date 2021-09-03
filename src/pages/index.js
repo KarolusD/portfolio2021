@@ -1,11 +1,11 @@
-import * as React from 'react'
 import Layout from 'components/Layout/Layout'
-import HeroSection from 'sections/HeroSection'
-import ProjectsSection from 'sections/ProjectsSection'
+import Seo from 'components/Seo/Seo'
+import * as React from 'react'
 import AboutMeSection from 'sections/AboutMeSection'
-import MyExpertiseSection from 'sections/MyExpertiseSection'
 import ContactMeSection from 'sections/ContactMeSection'
-import Seo from '../components/Seo/Seo'
+import HeroSection from 'sections/HeroSection'
+import MyExpertiseSection from 'sections/MyExpertiseSection'
+import ProjectsSection from 'sections/ProjectsSection'
 
 const IndexPage = () => {
   return (

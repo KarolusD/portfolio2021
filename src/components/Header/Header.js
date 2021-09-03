@@ -1,10 +1,10 @@
-import * as React from 'react'
 import Logo from 'assets/svg/logo.svg'
+import { useMenu } from 'hooks/useMenu'
+import * as React from 'react'
 import styled from 'styled-components'
 import Hamburger from './Hamburger/Hamburger'
-import Social from './Social/Social'
 import Menu from './Menu/Menu'
-import { useMenu } from 'hooks/useMenu'
+import Social from './Social/Social'
 
 const Header = () => {
   const { isMenuOpen, toggleMobileMenu } = useMenu()
