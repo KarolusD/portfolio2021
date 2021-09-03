@@ -155,6 +155,7 @@ const ProjectTitle = styled(H2)`
 const ProjectRole = styled(H3)`
   color: ${({ theme }) => theme.brandGreen};
   font-size: ${({ theme }) => theme.font.size.body};
+  font-weight: ${({ theme }) => theme.font.weight.semibold};
   margin-bottom: 0.8rem;
 `
 
