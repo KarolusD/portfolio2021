@@ -6,6 +6,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const BlogPage = () => {
+  console.log('Blog coming soon!')
   return (
     <Layout>
       <Seo title="blog" />
