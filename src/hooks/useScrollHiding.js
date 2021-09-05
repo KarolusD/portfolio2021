@@ -18,5 +18,5 @@ export const useScrollHiding = (scrollDownRef) => {
         window.removeEventListener('scroll', scrollTracking)
       }
     }
-  }, [])
+  }, [scrollDownRef])
 }
