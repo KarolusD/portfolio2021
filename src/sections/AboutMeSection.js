@@ -27,11 +27,17 @@ const AboutMeTemplate = () => {
             </Status>
           </ArticleHeader>
           <ArticleText>
-            Qui laboris elit consequat et ipsum ad et proident. Laborum
-            voluptate nulla excepteur tempor esse magna eiusmod id enim labore
-            ullamco et nostrud. Culpa dolor labore enim consectetur cupidatat
-            dolor laborum ad ullamco consequat elit proident elit. Ipsum magna
-            nostrud consectetur elit eiusmod minim sit nisi quis.
+            Those 3 words starting from letter D drives me to be creative and
+            passionate about building things. Currently I am working as a UX/UI
+            designer in software house. I have an experience in working with
+            clients from different industries. I colaborate with people of
+            variety profession, from developers, through martketing, till
+            salesmans and business. From the very beginning I wanted to create
+            things from A to Z that's why I am also passionate about
+            programming, espiecailly the frontend side which really corelates
+            with my day-to-day job. If you would like to create website from
+            scratch with a good user experience and outstanding layout I am the
+            person you should contact with.
           </ArticleText>
         </AboutMeArticle>
       </AboutMeWrapper>

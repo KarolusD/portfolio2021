@@ -13,6 +13,7 @@ const ProjectsTemplate = () => {
   const data = useStaticQuery(query)
 
   const PROJECTS = data.allFile.edges
+  console.log(PROJECTS)
 
   const renderProjects = () => {
     return PROJECTS.map(({ node }, idx) => {
@@ -113,10 +114,6 @@ const query = graphql`
       }
     }
   }
-`
-
-const ProjectsSection = styled(Section)`
-  min-height: 300vh;
 `
 
 const Project = styled.div`

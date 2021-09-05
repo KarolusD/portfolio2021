@@ -14,28 +14,28 @@ const MyExpertiseTemplate = () => {
       icon: <Message />,
       title: 'Research & direction',
       description:
-        'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+        "Every project that I've made started from learning about the industry, clients expecations and users needs. To prepare a really good and user friendly interface you have to know what is important for business and users.",
       emphasis: 'Understand first.',
     },
     {
       icon: <Layout />,
       title: 'UI/UX design',
       description:
-        'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+        'I always take care about user experience and user interface. I am working with typography, colours & layout on daily basis, so believe me everything is always well preapred with attention to details.',
       emphasis: 'Every pixel matter.',
     },
     {
       icon: <Code />,
       title: 'Development',
       description:
-        'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+        'When it comes to the development phase I am really focused to make sure that the actual implementation is consistent with the design and that the code is well written and optimized.',
       emphasis: 'Bring work to life.',
     },
     {
       icon: <Layers />,
       title: 'Motion & animation',
       description:
-        'Ut fugiat aliqua tempor commodo ipsum. Ad aute ad Lorem ex eiusmod ex deserunt tempor in proident. Sint commodo dolor aute do culpa velit et deserunt officia esse aliqua voluptate nisi laboris.',
+        'Nice page transitions and smaller interactions help to build solid brand image and make the whole experience better that users would love to stay on your website a little bit longer.',
       emphasis: 'Show rather than tell.',
     },
   ]

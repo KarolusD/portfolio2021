@@ -1,7 +1,7 @@
 ---
 title: Fitness blog
 role: Frontend developer & UX/UI designer
-description: 'Architecto quae consequatur perspiciatis neque beatae optio fuga molestias laudantium. Perspiciatis officia explicabo. Delectus omnis consectetur. Soluta ut culpa nihil. Facere explicabo tenetur est hic aut aut voluptas nesciunt voluptatem. Accusantium voluptatibus corrupti est et ex possimus.'
+description: "The goal behind this project was to build a website which create a network of users and clients who are interested in diet and/or workout. I designed whole brand and user interface. I also managed to connect this website to the headless CMS where site owner can easily manage it's content."
 imageLight: ./kw-light.png
 imageDark: ./kw-dark.png
 codeBase: https://github.com/KarolusD/fitness-blog
