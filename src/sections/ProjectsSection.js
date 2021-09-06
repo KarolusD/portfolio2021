@@ -124,6 +124,7 @@ const Project = styled.div`
   width: 100%;
   max-width: 160rem;
   margin-bottom: 16rem;
+  padding: 8rem 0;
 
   ${({ theme }) => theme.mq.desktop} {
     margin-bottom: 0;
