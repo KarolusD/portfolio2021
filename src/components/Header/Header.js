@@ -29,6 +29,7 @@ export default Header
 const HeaderWrapper = styled.header`
   align-items: flex-start;
   background: ${({ theme }) => theme.transparentBg};
+  backdrop-filter: saturate(180%) blur(20px);
   display: flex;
   justify-content: center;
   height: 80px;

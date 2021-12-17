@@ -21,7 +21,7 @@ const MyExpertiseTemplate = () => {
       icon: <Layout />,
       title: 'UI/UX design',
       description:
-        'I always take care about user experience and user interface. I am working with typography, colours & layout on daily basis, so believe me everything is always well preapred with attention to details.',
+        'I always take care about user experience and user interface. I am working with typography, colours & layout on daily basis, so believe me everything is always well prepared with attention to details.',
       emphasis: 'Every pixel matter.',
     },
     {
