@@ -5,5 +5,5 @@ description: 'I built simple timer which can help you focus on certain task for 
 imageLight: ./pt-light.png
 imageDark: ./pt-dark.png
 codeBase: https://github.com/KarolusD/pomo-timer
-liveDemo: https://www.pomofocus.it/
+liveDemo: https://pomo-focus.netlify.app/ 
 ---
